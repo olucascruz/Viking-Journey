@@ -8,9 +8,14 @@ public class Player : MonoBehaviour
     public float JumpForce;
     private Rigidbody2D rig;
     private Animator anim;
+    public bool doubleJump;
 
     public bool isJumping;
-    public bool doubleJump;
+
+    public GameObject hitBox;
+    public float attackTime;
+    bool isAttacking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,7 @@ public class Player : MonoBehaviour
     {
         Move();
         Jump();
+        Attack();
         
     }
 
@@ -63,6 +69,24 @@ public class Player : MonoBehaviour
 
         }
 
+    }
+
+    void Attack(){
+         if(!isAttacking){
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                anim.SetTrigger("attack");
+                hitBox.SetActive(true);
+                isAttacking = true;
+                Invoke("DelayAttack", attackTime);
+            }
+         }
+        
+    }
+
+    void DelayAttack(){
+        hitBox.SetActive(false);
+        isAttacking = false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
