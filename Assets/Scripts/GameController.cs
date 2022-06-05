@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {   
+    public Text coinText;
+    public int coins = 0;
     public Text lifeText;
     public int lives = 5;
     public static GameController gc;
@@ -32,10 +34,26 @@ public class GameController : MonoBehaviour
     public void SetLives(int life)
     {
         lives += life;
+        if(lives < 0)
+        {
+            lives = 0;
+        }
         RefreshScreen();
     }
+    
+    public void SetCoins(int coin)
+    {
+        coins += coin;
+        if(coins < 0)
+        {
+            coins = 0;
+        }
+        RefreshScreen();
+    }
+
     public void RefreshScreen()
     {
         lifeText.text = lives.ToString();
+        coinText.text = coins.ToString();
     }
 }

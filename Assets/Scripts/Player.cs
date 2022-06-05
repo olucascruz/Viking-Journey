@@ -13,8 +13,11 @@ public class Player : MonoBehaviour
     public bool isJumping;
 
     public GameObject hitBox;
+    public GameObject blood;
     public float attackTime;
+    public float takeDamageTime;
     bool isAttacking = false;
+    bool isIntangible = false;
 
     private GameController gcPlayer;
 
@@ -112,9 +115,24 @@ public class Player : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Damage")
+        if(collision.gameObject.tag == "Damage" && !isIntangible)
         {       
+                blood.SetActive(true);
                 gcPlayer.SetLives(-1);
+                isIntangible = true;
+                Invoke("DelayTakeDamage", takeDamageTime);
         }
+
+        if(collision.gameObject.tag == "Coin")
+        {
+            gcPlayer.SetCoins(1);
+            Destroy(collision.gameObject);
+        }
+    }
+
+    void DelayTakeDamage()
+    {
+        blood.SetActive(false);
+        isIntangible = false;
     }
 }

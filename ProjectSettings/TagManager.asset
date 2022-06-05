@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Player_Damage
   - Damage
+  - Coin
   layers:
   - Default
   - TransparentFX
