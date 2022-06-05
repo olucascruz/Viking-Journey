@@ -106,4 +106,12 @@ public class Player : MonoBehaviour
             isJumping = true;
         }
     }
+
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Damage")
+        {       
+                Debug.Log("Ui");
+        }
+    }
 }

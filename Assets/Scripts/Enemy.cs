@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    public float speed;
+    public GameObject hitBox;
+    public float attackTime;
+    public float distanceAttack;
     public bool isDead = false;
+    public bool isAttacking = false;
+
+
+
     // Start is called before the first frame update
     void Start()
     {

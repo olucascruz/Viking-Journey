@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player_Damage
+  - Damage
   layers:
   - Default
   - TransparentFX
