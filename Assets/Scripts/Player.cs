@@ -16,11 +16,14 @@ public class Player : MonoBehaviour
     public float attackTime;
     bool isAttacking = false;
 
+    private GameController gcPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gcPlayer = GameController.gc;
     }
 
     // Update is called once per frame
@@ -111,7 +114,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Damage")
         {       
-                Debug.Log("Ui");
+                gcPlayer.SetLives(-1);
         }
     }
 }
