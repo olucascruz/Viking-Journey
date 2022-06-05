@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {   
     public Text coinText;
-    public int coins = 0;
+    public int coins = 10;
     public Text lifeText;
-    public int lives = 5;
+    public int lives = 1;
     public static GameController gc;
 
     // Start is called before the first frame update
@@ -37,6 +37,10 @@ public class GameController : MonoBehaviour
         if(lives < 0)
         {
             lives = 0;
+        }
+        if(lives > 5)
+        {
+            lives = 5;
         }
         RefreshScreen();
     }

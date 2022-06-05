@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 
     public GameObject hitBox;
     public GameObject blood;
+    public GameObject cure;
     public float attackTime;
     public float takeDamageTime;
     bool isAttacking = false;
@@ -35,7 +36,11 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         Attack();
-        
+        if (Input.GetKeyDown(KeyCode.K) && gcPlayer.coins >= 5)
+            {   
+                cure.SetActive(true);
+                Invoke("NoCure", 0.1f);
+            }
     }
 
     void Move(){
@@ -128,6 +133,15 @@ public class Player : MonoBehaviour
             gcPlayer.SetCoins(1);
             Destroy(collision.gameObject);
         }
+
+        
+            
+            
+        
+    }
+
+    void NoCure(){
+        cure.SetActive(false);
     }
 
     void DelayTakeDamage()
