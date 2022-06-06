@@ -41,6 +41,10 @@ public class Player : MonoBehaviour
                 cure.SetActive(true);
                 Invoke("NoCure", 0.1f);
             }
+        if(gcPlayer.lives == 0)
+        {
+            Invoke("Death", 0.2f);
+        }
     }
 
     void Move(){
@@ -133,11 +137,7 @@ public class Player : MonoBehaviour
             gcPlayer.SetCoins(1);
             Destroy(collision.gameObject);
         }
-
-        
-            
-            
-        
+    
     }
 
     void NoCure(){
@@ -148,5 +148,10 @@ public class Player : MonoBehaviour
     {
         blood.SetActive(false);
         isIntangible = false;
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
     }
 }

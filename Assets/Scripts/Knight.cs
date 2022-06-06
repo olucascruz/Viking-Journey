@@ -60,13 +60,15 @@ public class Knight : Enemy
         }
     }
 
-     void Attack(){
-         if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttacking){
-            anim.SetTrigger("attack");
-            hitBox.SetActive(true);
-            isAttacking = true;
-            Invoke("DelayAttack", attackTime);
-         }
+    void Attack(){
+        if(positionPlayer){
+            if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttacking){
+                anim.SetTrigger("attack");
+                hitBox.SetActive(true);
+                isAttacking = true;
+                Invoke("DelayAttack", attackTime);
+            }
+        }
     }
 
     void DelayAttack(){

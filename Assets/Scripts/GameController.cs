@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {   
@@ -10,6 +11,7 @@ public class GameController : MonoBehaviour
     public Text lifeText;
     public int lives = 1;
     public static GameController gc;
+    public GameObject GameOverScreen;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,7 +30,9 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(lives == 0){
+            Invoke("GameOver", 0.5f);
+        }
     }
 
     public void SetLives(int life)
@@ -59,5 +63,17 @@ public class GameController : MonoBehaviour
     {
         lifeText.text = lives.ToString();
         coinText.text = coins.ToString();
+    }
+    void GameOver()
+    {
+        GameOverScreen.SetActive(true);
+    }
+    public void Reset(string Scene)
+    {
+        SceneManager.LoadScene(Scene);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
