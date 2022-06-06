@@ -9,6 +9,7 @@ public class Witch : MonoBehaviour
     private GameController gcPlayer;
     private Animator anim;
     private AudioSource sound;
+    bool contact = false;
 
 
 
@@ -28,17 +29,30 @@ public class Witch : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && !contact)
         {
 
             if(gcPlayer.coins < 5)
             {
-                NoCoins.SetActive(true);
+                if(NoCoins)
+                {
+                    GameObject textNoCoins = Instantiate(NoCoins);
+                    textNoCoins.transform.position = new Vector3(    
+                    this.gameObject.transform.position.x,
+                    this.gameObject.transform.position.y+0.8f,
+                    this.gameObject.transform.position.z);
+                }    
+                     
             }
             else
             {
-                HealingOffer.SetActive(true);
+                GameObject textHealingOffer = Instantiate(HealingOffer);
+                    textHealingOffer.transform.position = new Vector3(    
+                    this.gameObject.transform.position.x,
+                    this.gameObject.transform.position.y+0.8f,
+                    this.gameObject.transform.position.z);
             }
+            contact = true;
         }
 
         if(collision.gameObject.tag == "cure")
@@ -54,10 +68,11 @@ public class Witch : MonoBehaviour
     void OnTriggerExit2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player")
-        {
-            HealingOffer.SetActive(false);
-            NoCoins.SetActive(false);
+        {   
+            Destroy(GameObject.Find(HealingOffer.name + "(Clone)"));
+            Destroy(GameObject.Find(NoCoins.name + "(Clone)"));
         }
+        contact = false;
     }
 
 
