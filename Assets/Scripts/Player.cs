@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
 
     private GameController gcPlayer;
 
+    public AudioSource JumpSound;
+    public AudioSource AttackSound;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +74,7 @@ public class Player : MonoBehaviour
         {
             if(!isJumping)
         {
+                JumpSound.Play();
                 rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 doubleJump = true;
                 anim.SetBool("jump", true);
@@ -77,6 +82,7 @@ public class Player : MonoBehaviour
         }else{
             if(doubleJump)
             {
+                JumpSound.Play();
                 rig.AddForce(new Vector2(0f, JumpForce*1.2f), ForceMode2D.Impulse);
                 doubleJump = false;
             }
@@ -90,6 +96,7 @@ public class Player : MonoBehaviour
          if(!isAttacking){
             if (Input.GetKeyDown(KeyCode.J))
             {
+                AttackSound.Play();
                 anim.SetTrigger("attack");
                 hitBox.SetActive(true);
                 isAttacking = true;
@@ -135,7 +142,7 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Coin")
         {
             gcPlayer.SetCoins(1);
-            Destroy(collision.gameObject);
+            Destroy(collision.gameObject, 0.10f);
         }
     
     }

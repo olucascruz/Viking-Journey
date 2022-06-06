@@ -8,6 +8,8 @@ public class Witch : MonoBehaviour
     public GameObject NoCoins;
     private GameController gcPlayer;
     private Animator anim;
+    private AudioSource sound;
+
 
 
     // Start is called before the first frame update
@@ -15,7 +17,7 @@ public class Witch : MonoBehaviour
     {
         gcPlayer = GameController.gc;
         anim = GetComponent<Animator>();
-
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,6 +43,7 @@ public class Witch : MonoBehaviour
 
         if(collision.gameObject.tag == "cure")
         {
+            sound.Play();
             anim.SetTrigger("Cure");
             gcPlayer.SetLives(5);
             gcPlayer.SetCoins(-5);

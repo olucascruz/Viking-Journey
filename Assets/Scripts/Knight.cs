@@ -19,6 +19,8 @@ public class Knight : Enemy
     public LayerMask layer;
 
     private Transform positionPlayer;
+    private AudioSource sound;
+
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class Knight : Enemy
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
         positionPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class Knight : Enemy
     void Attack(){
         if(positionPlayer){
             if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttacking){
+                sound.Play();
                 anim.SetTrigger("attack");
                 hitBox.SetActive(true);
                 isAttacking = true;
