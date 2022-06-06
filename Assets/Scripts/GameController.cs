@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {   
     public Text coinText;
-    public int coins = 10;
     public Text lifeText;
+    public int coins = 10;
     public int lives = 1;
     public static GameController gc;
     public GameObject GameOverScreen;
@@ -24,7 +24,10 @@ public class GameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        RefreshScreen();
+        if(coinText && lifeText)
+        {
+            RefreshScreen();
+        }
     }
 
     // Update is called once per frame
