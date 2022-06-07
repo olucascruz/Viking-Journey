@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public bool doubleJump;
 
     public bool isJumping;
+    bool footGround = false;
 
     public GameObject hitBox;
     public GameObject blood;
@@ -56,15 +57,21 @@ public class Player : MonoBehaviour
         rig.velocity = new Vector2(movement * Speed, rig.velocity.y);
 
         if(movement > 0f){
-        anim.SetBool("run", true);
-        transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            if(!isJumping)
+            {
+                anim.SetBool("run", true);
+            }
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
         }
         if(movement < 0f){
-        anim.SetBool("run", true);
-        transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            if(!isJumping)
+            {
+                anim.SetBool("run", true);
+            }
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
         if(movement == 0f){
-        anim.SetBool("run", false);
+            anim.SetBool("run", false);
         }
     }
 
@@ -72,7 +79,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetButtonDown("Jump"))
         {
-            if(!isJumping)
+            if(!isJumping && footGround)
         {
                 JumpSound.Play();
                 rig.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
@@ -131,6 +138,10 @@ public class Player : MonoBehaviour
 
      void OnTriggerEnter2D(Collider2D collision)
     {
+        if(collision.gameObject.layer == 8)
+        {
+            footGround = true;
+        }
         if(collision.gameObject.tag == "Damage" && !isIntangible)
         {       
                 blood.SetActive(true);
@@ -145,6 +156,14 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject, 0.10f);
         }
     
+    }
+    
+     void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            footGround = false;
+        }
     }
 
     void NoCure(){

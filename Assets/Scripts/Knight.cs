@@ -61,6 +61,20 @@ public class Knight : Enemy
                 isRight = true;
             }
         }
+
+        if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack*5){
+            if(positionPlayer.position.x >= transform.position.x)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+                isRight = false;
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+                isRight = true;
+            }
+        }
+        
     }
 
     void Attack(){
