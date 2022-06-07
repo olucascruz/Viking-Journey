@@ -46,9 +46,11 @@ public class Player : MonoBehaviour
                 cure.SetActive(true);
                 Invoke("NoCure", 0.1f);
             }
+        if(gcPlayer){
         if(gcPlayer.lives == 0)
         {
             Invoke("Death", 0.2f);
+        }
         }
     }
 
@@ -124,6 +126,10 @@ public class Player : MonoBehaviour
             isJumping = false;
             anim.SetBool("jump", false);
 
+        }
+        if(collision.gameObject.tag == "FallDead")
+        {
+            gcPlayer.SetLives(-10);
         }
         
     }

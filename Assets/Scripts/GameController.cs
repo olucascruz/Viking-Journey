@@ -115,6 +115,7 @@ public class GameController : MonoBehaviour
         
         Time.timeScale = 1;
         SetLives(5);
+        SetCoins(-15);
         SceneManager.LoadScene(NameCurrentScene);
 
     }
