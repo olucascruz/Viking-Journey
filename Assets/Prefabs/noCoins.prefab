@@ -85,12 +85,12 @@ TextMesh:
   m_GameObject: {fileID: 6271899478539334901}
   m_Text: "Voc\xEA n\xE3o tem\nmoedas o suficiente"
   m_OffsetZ: 0
-  m_CharacterSize: 0.16
+  m_CharacterSize: 0.2
   m_LineSpacing: 1
   m_Anchor: 4
   m_Alignment: 1
   m_TabSize: 4
-  m_FontSize: 9
+  m_FontSize: 12
   m_FontStyle: 0
   m_RichText: 1
   m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}

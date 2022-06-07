@@ -39,7 +39,7 @@ public class Witch : MonoBehaviour
                     GameObject textNoCoins = Instantiate(NoCoins);
                     textNoCoins.transform.position = new Vector3(    
                     this.gameObject.transform.position.x,
-                    this.gameObject.transform.position.y+0.8f,
+                    this.gameObject.transform.position.y+1,
                     this.gameObject.transform.position.z);
                 }    
                      
@@ -49,7 +49,7 @@ public class Witch : MonoBehaviour
                 GameObject textHealingOffer = Instantiate(HealingOffer);
                     textHealingOffer.transform.position = new Vector3(    
                     this.gameObject.transform.position.x,
-                    this.gameObject.transform.position.y+0.8f,
+                    this.gameObject.transform.position.y+1,
                     this.gameObject.transform.position.z);
             }
             contact = true;
