@@ -12,6 +12,9 @@ public class GameController : MonoBehaviour
     public int lives = 1;
     public static GameController gc;
     public GameObject GameOverScreen;
+    public GameObject pauseMenu;
+    bool isGameOver = false;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -34,7 +37,13 @@ public class GameController : MonoBehaviour
     void Update()
     {
         if(lives == 0){
+            isGameOver = true;
             Invoke("GameOver", 0.5f);
+        }
+
+        if(Input.GetKeyDown(KeyCode.P) && !isGameOver)
+        {
+            Pause();
         }
     }
 
@@ -67,6 +76,22 @@ public class GameController : MonoBehaviour
         lifeText.text = lives.ToString();
         coinText.text = coins.ToString();
     }
+    
+    void Pause()
+    {
+        if(pauseMenu.gameObject.activeSelf)
+        {
+            pauseMenu.gameObject.SetActive(false);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            pauseMenu.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+    }
+    
+    
     void GameOver()
     {
         GameOverScreen.SetActive(true);

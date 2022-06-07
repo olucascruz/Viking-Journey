@@ -35,7 +35,10 @@ public class Knight : Enemy
     // Update is called once per frame
     void Update()
     {   
-        Move();
+        if(positionPlayer)
+        {
+            Move();
+        }
         if(isDead){
             anim.SetTrigger("death");  
         }
