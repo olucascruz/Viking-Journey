@@ -57,13 +57,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.64681554, y: -0.15678118}
-      - {x: 0.44501156, y: -0.09304406}
-      - {x: 0.11686088, y: -0.060936414}
-      - {x: -0.18175258, y: -0.081663}
+    - - {x: 0.31253764, y: -0.20017469}
+      - {x: 0.23854628, y: -0.19842817}
+      - {x: 0.072618194, y: -0.20971403}
+      - {x: -0.019528188, y: -0.21184327}
       - {x: -0.057228565, y: -0.39512444}
-      - {x: 0.5665632, y: -0.33831558}
-      - {x: 0.7161265, y: -0.2468611}
+      - {x: 0.30110526, y: -0.41270438}
+      - {x: 0.52590716, y: -0.33791292}
 --- !u!1 &5923066608926721265
 GameObject:
   m_ObjectHideFlags: 0
@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 5923066608926721266}
   - component: {fileID: 5923066608926721271}
   - component: {fileID: 5923066608926721270}
+  - component: {fileID: 15047037}
   m_Layer: 0
   m_Name: King
   m_TagString: Untagged
@@ -93,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 5923066608926721265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 18.6, y: -0.4262, z: 0}
-  m_LocalScale: {x: 6.2545905, y: 5.4519496, z: 1}
+  m_LocalScale: {x: 4.2124667, y: 3.34049, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5923066607850849229}
@@ -191,7 +192,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &5923066608926721270
 CapsuleCollider2D:
@@ -209,3 +210,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.18}
   m_Size: {x: 0.27, y: 0.65}
   m_Direction: 0
+--- !u!114 &15047037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5923066608926721265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4228168f55739b1499ef5a8fa9210e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  areaAtack: {fileID: 5923066607850849227}
+  speed: 0
+  distanceAttack: 1.2
+  delayAtk: 1
+  timeStun: 3
+  life: 10

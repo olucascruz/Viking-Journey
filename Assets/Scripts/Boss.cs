@@ -6,11 +6,9 @@ public class Boss : MonoBehaviour
 {
     public GameObject areaAtack;
     public float speed;
-    public Transform headPoint;
     private Transform positionPlayer;
     public float distanceAttack;
     private Animator anim;
-    bool isRight = true;
 
     bool isAttack = false;
     bool stunned = false;
@@ -51,14 +49,11 @@ public class Boss : MonoBehaviour
             if(positionPlayer.position.x > transform.position.x)
                 {
                     transform.eulerAngles = new Vector3(0, 0, 0);
-
-                    isRight = true;
                 }
             else
                 {   
                     transform.eulerAngles = new Vector3(0, 180, 0);
 
-                    isRight = false;
                 }
         
 
@@ -76,6 +71,7 @@ public class Boss : MonoBehaviour
 
     void deleyAttack()
     {
+        areaAtack.SetActive(false);
         isAttack = false;
     }
     void stun()
@@ -87,7 +83,7 @@ public class Boss : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player_Damage")
         {
-            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
             anim.SetTrigger("hit");
             speed += 0.1f;
             hits += 1;

@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
     public GameObject GameOverScreen;
     public GameObject pauseMenu;
     bool isGameOver = false;
+    public string NameCurrentScene;
+
 
 
     // Start is called before the first frame update
@@ -38,12 +40,17 @@ public class GameController : MonoBehaviour
     {
         if(lives == 0){
             isGameOver = true;
-            Invoke("GameOver", 0.5f);
+            GameOverScreen.SetActive(true);
         }
-
+        NameCurrentScene = SceneManager.GetActiveScene().name;
         if(Input.GetKeyDown(KeyCode.P) && !isGameOver)
         {
             Pause();
+        }
+
+        if(lives != 0 && GameOverScreen.gameObject.activeSelf)
+        {
+            GameOverScreen.gameObject.SetActive(false);
         }
     }
 
@@ -83,23 +90,36 @@ public class GameController : MonoBehaviour
         {
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1;
+            AudioSource[] audios = FindObjectsOfType<AudioSource>();
+            
         }
         else
         {
             pauseMenu.gameObject.SetActive(true);
             Time.timeScale = 0;
+            AudioSource[] audios = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource a in audios)
+            {
+                a.Pause();
+            }
         }
     }
     
     
-    void GameOver()
+    public void Reset()
     {
-        GameOverScreen.SetActive(true);
+        if(pauseMenu.gameObject.activeSelf)
+        {
+            pauseMenu.gameObject.SetActive(false);
+        }
+        
+        Time.timeScale = 1;
+        SetLives(5);
+        SceneManager.LoadScene(NameCurrentScene);
+
     }
-    public void Reset(string Scene)
-    {
-        SceneManager.LoadScene(Scene);
-    }
+
+    
     public void Quit()
     {
         Application.Quit();
