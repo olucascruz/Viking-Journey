@@ -91,6 +91,10 @@ public class GameController : MonoBehaviour
             pauseMenu.gameObject.SetActive(false);
             Time.timeScale = 1;
             AudioSource[] audios = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource a in audios)
+            {
+                a.Play();
+            }
             
         }
         else

@@ -790,8 +790,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410545035}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+      - m_Target: {fileID: 1410545036}
+        m_TargetAssemblyTypeName: ChangeSceneMenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -850,6 +850,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1410545034}
   - component: {fileID: 1410545035}
+  - component: {fileID: 1410545036}
   m_Layer: 0
   m_Name: ChangeScene
   m_TagString: Untagged
@@ -882,6 +883,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2a83629a6cd59ed4db06efccf301fe66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1410545036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410545032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d43d12ee4be11374cbe5832e3c1387a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1624399134
@@ -972,7 +985,6 @@ GameObject:
   - component: {fileID: 1672457626}
   - component: {fileID: 1672457625}
   - component: {fileID: 1672457624}
-  - component: {fileID: 1672457623}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -980,23 +992,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1672457623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1672457622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fac13bab4671b33419f9b3a034f7da0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
-  lifeText: {fileID: 0}
-  coins: 10
-  lives: 5
-  GameOverScreen: {fileID: 0}
 --- !u!114 &1672457624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,10 +1240,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1410545035}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: NextScene
-        m_Mode: 5
+      - m_Target: {fileID: 1410545036}
+        m_TargetAssemblyTypeName: ChangeSceneMenu, Assembly-CSharp
+        m_MethodName: EnterGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
