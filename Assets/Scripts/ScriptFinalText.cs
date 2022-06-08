@@ -11,6 +11,7 @@ public class ScriptFinalText : MonoBehaviour
     public GameObject Text3;
     void Start()
     {
+        Destroy(GameObject.Find("HudCanvas"));
         Invoke("ShowText1", 0.5f);        
     }
 

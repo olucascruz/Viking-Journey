@@ -15,7 +15,16 @@ public class ScriptText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("ShowText1", 0.5f);        
+        Invoke("ShowText1", 0.5f);
+              
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            GoGame();
+        }  
     }
 
     void ShowText1()

@@ -38,11 +38,13 @@ public class Knight : Enemy
         if(positionPlayer)
         {
             Move();
+            if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttacking){
+                Invoke("Attack", attackTime);
+            }
         }
         if(isDead){
             anim.SetTrigger("death");  
         }
-        Attack();
     }
 
     void Move(){
@@ -81,15 +83,11 @@ public class Knight : Enemy
     }
 
     void Attack(){
-        if(positionPlayer){
-            if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttacking){
-                sound.Play();
-                anim.SetTrigger("attack");
-                hitBox.SetActive(true);
-                isAttacking = true;
-                Invoke("DelayAttack", attackTime);
-            }
-        }
+        sound.Play();
+        anim.SetTrigger("attack");
+        hitBox.SetActive(true);
+        isAttacking = true;
+        Invoke("DelayAttack", attackTime);
     }
 
     void DelayAttack(){

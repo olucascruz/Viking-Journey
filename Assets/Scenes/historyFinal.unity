@@ -498,7 +498,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mandaram um exerc\xEDto de mil soldados atr\xE1s do n\xF3rdico que matou
+  m_text: "Mandaram um ex\xE9rcito de mil soldados atr\xE1s do n\xF3rdico que matou
     o rei"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Depois de derrotar o Rei Ingl\xEAs Ledgard realiza sua vingan\xE7a."
+  m_text: "Depois de derrotar o Rei Ingl\xEAs Ledgard realizou sua vingan\xE7a."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -10,59 +10,67 @@ public class Boss : MonoBehaviour
     public float distanceAttack;
     private Animator anim;
     bool isAttack = false;
-    bool stunned = false;
     public float delayAtk;
-    public float timeStun;
     public int life;
     public AudioSource TakeDamageSound;
     public AudioSource AttackSound;
-    private int hits = 0;
+    public Transform ColUp;
+    public Transform ColDown;
+    public bool colliding;
+    public LayerMask layer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         positionPlayer = GameObject.FindGameObjectWithTag("Player").transform;
+        DefaultMove();
+
     }
 
     // Update is called once per frame
     void Update()
     {   
-        if(!stunned){
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-            anim.SetBool("stunned", false);
-        }
-        else
+        colliding = Physics2D.Linecast(ColDown.position, ColUp.position, layer);
+        if(colliding)
         {
-            anim.SetBool("stunned", true);
+            DefaultMove(); 
         }
+        
+
         if(positionPlayer)
         {
-        if(positionPlayer.position.y < transform.position.y)
-        {
-            DefaultMove();
-        }
-        else
-        {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
-        }
-        }
-        
-
-        if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttack)
-            {   
-                Invoke("Attack", 1.5f);
+            if(positionPlayer.position.y > transform.position.y)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 4, ForceMode2D.Impulse);
             }
+            
+            if(Vector2.Distance(transform.position, positionPlayer.position) < distanceAttack && !isAttack)
+            {   
+                anim.SetBool("stunned", true);
+                Invoke("Attack", delayAtk);
+            }else{
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+                anim.SetBool("stunned", false);
+            }
+
         }
         
-
+    }
+        
     void Attack()
-    {
-        areaAtack.SetActive(true);
-        anim.SetTrigger("attack");
-        isAttack = true;
-        AttackSound.Play();
-        Invoke("deleyAttack", delayAtk);
+    {   
+        if(!isAttack)
+        {
+            areaAtack.SetActive(true);
+            anim.SetTrigger("attack");
+            AttackSound.Play();
+            isAttack = true;
+            Invoke("deleyAttack", delayAtk);
+            Invoke("ReverseMove", delayAtk);
+        }
+
     }
 
     void DefaultMove(){
@@ -80,14 +88,26 @@ public class Boss : MonoBehaviour
         }
     }
 
+    void ReverseMove(){
+        
+        if(positionPlayer){
+            if(positionPlayer.position.x < transform.position.x)
+                {
+                    transform.eulerAngles = new Vector3(0, 0, 0);
+                }
+            else
+                {   
+                    transform.eulerAngles = new Vector3(0, 180, 0);
+
+                }
+            Invoke("DefaultMove", 2f);
+        }
+    }
+
     void deleyAttack()
     {
         areaAtack.SetActive(false);
         isAttack = false;
-    }
-    void stun()
-    {
-        stunned = false;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -98,20 +118,14 @@ public class Boss : MonoBehaviour
             anim.SetTrigger("hit");
             TakeDamageSound.Play();
             speed += 0.1f;
-            hits += 1;
             life -= 1;
             
-            if(hits == 2){
-                stunned = true;
-                Invoke("stun", timeStun);
-                hits = 0;
-             }
             
             if(life <= 0)
             {
                 anim.SetTrigger("death");
                 speed = 0;
-                Destroy(gameObject, 0.5f);
+                Destroy(gameObject, 0.6f);
             } 
         }
     }

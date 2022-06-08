@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61175678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 8.62, z: -10}
+  m_LocalPosition: {x: -6.43, y: 0.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6363,7 +6363,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7771318, y: 1}
+    m_SensorSize: {x: 1.7775424, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7178,11 +7178,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9123515227393813705, guid: 623be2e7607ccc0469d008b3f3624834, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100
+      value: -6.43
       objectReference: {fileID: 0}
     - target: {fileID: 9123515227393813705, guid: 623be2e7607ccc0469d008b3f3624834, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.62
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 9123515227393813705, guid: 623be2e7607ccc0469d008b3f3624834, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10641,10 +10641,6 @@ PrefabInstance:
     - target: {fileID: 5923066608926721265, guid: e5fa86072943ca147bc8da4240e3e68f, type: 3}
       propertyPath: m_Name
       value: King
-      objectReference: {fileID: 0}
-    - target: {fileID: 5923066608926721265, guid: e5fa86072943ca147bc8da4240e3e68f, type: 3}
-      propertyPath: m_TagString
-      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 5923066608926721268, guid: e5fa86072943ca147bc8da4240e3e68f, type: 3}
       propertyPath: m_RootOrder

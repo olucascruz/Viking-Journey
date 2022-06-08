@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   hitBox: {fileID: 1246375988104149987}
-  attackTime: 1
+  attackTime: 0.5
   distanceAttack: 1
   isDead: 0
   isAttacking: 0
