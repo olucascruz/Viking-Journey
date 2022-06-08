@@ -9,7 +9,7 @@ public class ChangeSceneMenu : MonoBehaviour
     
     public void EnterGame()
     {
-        SceneManager.LoadScene("lvl1");
+        SceneManager.LoadScene("history");
     }
 
     public void Quit()

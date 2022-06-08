@@ -36,7 +36,8 @@ public class Boss : MonoBehaviour
         {
             anim.SetBool("stunned", true);
         }
-        
+        if(positionPlayer)
+        {
         if(positionPlayer.position.y < transform.position.y)
         {
             DefaultMove();
@@ -44,6 +45,7 @@ public class Boss : MonoBehaviour
         else
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+        }
         }
         
 

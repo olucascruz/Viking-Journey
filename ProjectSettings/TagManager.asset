@@ -10,6 +10,7 @@ TagManager:
   - Witch
   - cure
   - FallDead
+  - Boss
   layers:
   - Default
   - TransparentFX
