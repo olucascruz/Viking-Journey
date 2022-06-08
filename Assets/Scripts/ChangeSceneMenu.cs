@@ -12,7 +12,7 @@ public class ChangeSceneMenu : MonoBehaviour
         SceneManager.LoadScene("history");
     }
 
-    public void Quit()
+    public void QuitGame()
     {
         Application.Quit();
     }
