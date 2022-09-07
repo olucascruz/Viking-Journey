@@ -1,14 +1,14 @@
 # Viking-Journey
 ## Icon
-![LogoOficialJogo](https://user-images.githubusercontent.com/69447962/172626223-c5f12682-3f1e-450d-9cb8-7999cc2a1cdc.png)
+<div align="center">
+<img src="https://user-images.githubusercontent.com/69447962/172626223-c5f12682-3f1e-450d-9cb8-7999cc2a1cdc.png" alt="LogoOficialJogo" height="200" width="200"/>
+</div>
 
-## Tela Inicial 
-![Inicio Jogo](https://user-images.githubusercontent.com/69447962/172626256-7718b16d-1989-4f30-9c78-0645512cdd71.png)
+## Tela Inicial
+<div align="center">
+<img src="https://user-images.githubusercontent.com/69447962/172626256-7718b16d-1989-4f30-9c78-0645512cdd71.png" alt="Inicio Jogo" height="400" width="800"/>
+</div>
 
-
-  # Desenvolvido Por:
-  Lucas Cruz Araújo
-  
   # Finalidade:
   Desenvolvido para realizar um processo seletivo.
   
@@ -44,3 +44,6 @@
       Castle Music Loop (musica de fundo fase 2) -  https://freesound.org/people/Sirkoto51/sounds/416632/
       Heal - RPG (musica que toca quando a bruxa cura) - https://freesound.org/people/colorsCrimsonTears/sounds/562292/
       Axe Throwing (som machado) -https://freesound.org/people/SoundFlakes/sounds/492224/
+  
+  # Desenvolvido Por:
+  Lucas Cruz Araújo
