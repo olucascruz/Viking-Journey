@@ -16,7 +16,7 @@
   O jogo conta a jornada de Ledgard que depois de perder sua familia por um ataque Inglês, decide sozinho buscar vingança contra todo o reino.
   
   # Gameplay:
-  É um jogo de plataforma, em que personagem enfreta deiversos soldados para chegar ao rei.
+  É um jogo de plataforma, em que personagem enfreta diversos soldados para chegar ao rei.
   
   # Controles:
 
